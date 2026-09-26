@@ -104,15 +104,9 @@ footer a { margin-right: 18px; }
       each league, and the nicknames, colours and board layouts you choose.</li>
   <li><strong>Recent scores</strong>: the last scoreboard fetched for each board, so a widget can
       draw immediately instead of showing a blank while it loads.</li>
-  <li><strong>Your sign-in details for platforms that need them</strong>, kept in the iOS keychain,
-      never in ordinary settings:
-    <ul>
-      <li>ESPN: the two session cookies (SWID and espn_s2) from signing in to ESPN.</li>
-      <li>MyFantasyLeague: the session identifier MyFantasyLeague returns when you sign in. Your
-          MyFantasyLeague password is sent once, directly to MyFantasyLeague, and is never stored
-          by BigBoard.</li>
-    </ul>
-  </li>
+  <li><strong>Your ESPN sign-in</strong>, if you have a private ESPN league: the two session
+      cookies (SWID and espn_s2) that signing in to ESPN produces, kept in the iOS keychain and
+      never in ordinary settings. Sleeper and Fleaflicker need no sign-in at all.</li>
 </ul>
 <p>You can remove all of it at any time by deleting the app, or clear cached scores from Settings.</p>
 
@@ -124,12 +118,10 @@ footer a { margin-right: 18px; }
   <li><strong>ESPN</strong>: the league ID, and for a private league your ESPN session cookies.</li>
   <li><strong>Fleaflicker</strong>: the email address or user ID on your Fleaflicker account, to
       look up your leagues and scores.</li>
-  <li><strong>MyFantasyLeague</strong>: your username and password once, to sign in, and after that
-      the session identifier they return.</li>
 </ul>
 <p>It also fetches public NFL game information (kickoff times, game clocks and scores) from ESPN's
-   public scoreboard, and public player information from Sleeper and MyFantasyLeague. Those requests
-   carry no personal information.</p>
+   public scoreboard, and public player information from Sleeper. Those requests carry no
+   personal information.</p>
 <p>Each platform handles what it receives under its own privacy policy.</p>
 
 <h2>What BigBoard does not do</h2>
