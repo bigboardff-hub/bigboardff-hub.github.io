@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BigBoard FF — Privacy Policy</title>
+<meta name="description" content="BigBoard FF has no servers and no analytics. Everything it knows stays on your iPhone.">
+<style>
+:root {
+  --bg: #F4F3F1;
+  --card: #FFFFFF;
+  --ink: #1B1B1D;
+  --muted: #6B6B71;
+  --rule: #E2E1DE;
+  --accent: #34A98A;
+  --band: #0E8FA3;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #131315;
+    --card: #1E1E21;
+    --ink: #F1F1F3;
+    --muted: #9B9BA1;
+    --rule: #303034;
+    --accent: #4FC3A1;
+    --band: #35B2C6;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  padding: 0 16px 64px;
+  background: var(--bg);
+  color: var(--ink);
+  font: 17px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  -webkit-text-size-adjust: 100%;
+}
+.wrap { max-width: 680px; margin: 0 auto; }
+header { padding: 56px 0 28px; }
+.mark {
+  display: inline-block;
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--band);
+  padding: 5px 12px;
+  border-radius: 999px;
+}
+h1 { font-size: 34px; line-height: 1.15; margin: 18px 0 8px; letter-spacing: -0.02em; }
+h2 { font-size: 21px; margin: 40px 0 10px; letter-spacing: -0.01em; }
+h3 { font-size: 17px; margin: 26px 0 6px; }
+p, li { color: var(--ink); }
+.lede, .stamp { color: var(--muted); }
+.stamp { font-size: 15px; margin: 0 0 8px; }
+.card {
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: 16px;
+  padding: 4px 22px 22px;
+  margin: 24px 0;
+}
+a { color: var(--accent); }
+a.btn {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 13px 22px;
+  border-radius: 12px;
+  margin-top: 6px;
+}
+ul { padding-left: 22px; }
+li { margin: 6px 0; }
+footer {
+  margin-top: 48px;
+  padding-top: 20px;
+  border-top: 1px solid var(--rule);
+  color: var(--muted);
+  font-size: 15px;
+}
+footer a { margin-right: 18px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <span class="mark">BigBoard FF</span>
+  <h1>Privacy Policy</h1>
+  <p class="stamp">Last updated: 26 September 2026</p>
+  <p class="lede">BigBoard shows your fantasy football matchups from the platforms you already
+     play on. It has no servers. Everything it knows about you stays on your iPhone, and the
+     only services it talks to are the fantasy platforms you choose to connect.</p>
+</header>
+
+<h2>What BigBoard stores, and where</h2>
+<p>Everything below is kept <strong>on your device</strong>, in storage shared between the app
+   and its home-screen widget. None of it is sent to the developer.</p>
+<ul>
+  <li><strong>The leagues you add</strong>: league IDs, league and team names, your own team in
+      each league, and the nicknames, colours and board layouts you choose.</li>
+  <li><strong>Recent scores</strong>: the last scoreboard fetched for each board, so a widget can
+      draw immediately instead of showing a blank while it loads.</li>
+  <li><strong>Your sign-in details for platforms that need them</strong>, kept in the iOS keychain,
+      never in ordinary settings:
+    <ul>
+      <li>ESPN: the two session cookies (SWID and espn_s2) from signing in to ESPN.</li>
+      <li>MyFantasyLeague: the session identifier MyFantasyLeague returns when you sign in. Your
+          MyFantasyLeague password is sent once, directly to MyFantasyLeague, and is never stored
+          by BigBoard.</li>
+    </ul>
+  </li>
+</ul>
+<p>You can remove all of it at any time by deleting the app, or clear cached scores from Settings.</p>
+
+<h2>What BigBoard sends, and to whom</h2>
+<p>BigBoard talks directly to the fantasy platforms you connect, from your device. It sends only
+   what each platform needs to identify your leagues:</p>
+<ul>
+  <li><strong>Sleeper</strong>: your Sleeper username, to look up your leagues and scores.</li>
+  <li><strong>ESPN</strong>: the league ID, and for a private league your ESPN session cookies.</li>
+  <li><strong>Fleaflicker</strong>: the email address or user ID on your Fleaflicker account, to
+      look up your leagues and scores.</li>
+  <li><strong>MyFantasyLeague</strong>: your username and password once, to sign in, and after that
+      the session identifier they return.</li>
+</ul>
+<p>It also fetches public NFL game information (kickoff times, game clocks and scores) from ESPN's
+   public scoreboard, and public player information from Sleeper and MyFantasyLeague. Those requests
+   carry no personal information.</p>
+<p>Each platform handles what it receives under its own privacy policy.</p>
+
+<h2>What BigBoard does not do</h2>
+<ul>
+  <li>No analytics, tracking, advertising or third-party SDKs of any kind.</li>
+  <li>No account with BigBoard, and no BigBoard server: there is nowhere for your data to be sent
+      even in principle.</li>
+  <li>Nothing is sold or shared with anyone.</li>
+</ul>
+
+<h2>Purchases</h2>
+<p>BigBoard is a free download. Following more than one league is a one-time in-app purchase handled
+   entirely by Apple. BigBoard never sees your payment details; it only asks Apple which purchases
+   this Apple Account owns.</p>
+
+<h2>Children</h2>
+<p>BigBoard is not directed at children and collects nothing about them.</p>
+
+<h2>Changes</h2>
+<p>If this policy changes, the new version appears at this address with a new date at the top.</p>
+
+<h2>Contact</h2>
+<p>Questions about privacy: <a href="mailto:bigboardff@gmail.com">bigboardff@gmail.com</a></p>
+
+<footer>
+  <a href="index.html">Support</a>
+</footer>
+
+</div>
+</body>
+</html>
