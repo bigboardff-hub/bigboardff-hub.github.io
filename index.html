@@ -3,153 +3,365 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>BigBoard FF — Support</title>
-<meta name="description" content="Help and contact for BigBoard FF, the fantasy football scoreboard for iPhone.">
-<style>
-:root {
-  --bg: #F4F3F1;
-  --card: #FFFFFF;
-  --ink: #1B1B1D;
-  --muted: #6B6B71;
-  --rule: #E2E1DE;
-  --accent: #34A98A;
-  --band: #0E8FA3;
+<title>BigBoard FF — Every league. One board.</title>
+<meta name="description" content="BigBoard FF puts every fantasy football league you play in on one live scoreboard and home-screen widget. Sleeper, ESPN and Fleaflicker. Free for one league.">
+<meta name="theme-color" content="#0E0F11">
+<meta name="apple-itunes-app" content="app-id=6817471218">
+<link rel="icon" type="image/png" href="img/icon-512.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="BigBoard FF">
+<meta property="og:title" content="BigBoard FF — Every league. One board.">
+<meta property="og:description" content="Every fantasy football league you play, live on one board and one home-screen widget. Sleeper, ESPN and Fleaflicker. Free for one league.">
+<meta property="og:image" content="https://bigboardff-hub.github.io/img/social-card.png">
+<meta property="og:url" content="https://bigboardff-hub.github.io/">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MobileApplication",
+  "name": "BigBoard FF",
+  "alternateName": "BigBoard",
+  "slogan": "Every league. One board.",
+  "description": "An iPhone app and home-screen widget that puts every fantasy football league you play in on one live scoreboard, with a live win-chance bar for every matchup. Reads Sleeper, ESPN and Fleaflicker.",
+  "operatingSystem": "iOS 17 or later",
+  "applicationCategory": "SportsApplication",
+  "image": "https://bigboardff-hub.github.io/img/icon-1024.png",
+  "logo": "https://bigboardff-hub.github.io/img/icon-1024.png",
+  "screenshot": [
+    "https://bigboardff-hub.github.io/img/01-every-league.jpg",
+    "https://bigboardff-hub.github.io/img/02-home-screen.jpg",
+    "https://bigboardff-hub.github.io/img/03-six-styles.jpg",
+    "https://bigboardff-hub.github.io/img/04-still-to-play.jpg",
+    "https://bigboardff-hub.github.io/img/05-platforms.jpg",
+    "https://bigboardff-hub.github.io/img/06-lock-screen.jpg"
+  ],
+  "downloadUrl": "https://apps.apple.com/us/app/bigboard-ff/id6817471218",
+  "offers": [
+    { "@type": "Offer", "name": "One league", "price": "0", "priceCurrency": "USD" },
+    { "@type": "Offer", "name": "Two Leagues", "price": "0.99", "priceCurrency": "USD" },
+    { "@type": "Offer", "name": "Unlimited leagues", "price": "4.99", "priceCurrency": "USD" }
+  ]
 }
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #131315;
-    --card: #1E1E21;
-    --ink: #F1F1F3;
-    --muted: #9B9BA1;
-    --rule: #303034;
-    --accent: #4FC3A1;
-    --band: #35B2C6;
-  }
+</script>
+<style>
+@font-face { font-family: "Barlow Condensed"; font-weight: 800; font-display: swap; src: url(fonts/BarlowCondensed-ExtraBold.ttf) format("truetype"); }
+@font-face { font-family: "Barlow Condensed"; font-weight: 700; font-display: swap; src: url(fonts/BarlowCondensed-Bold.ttf) format("truetype"); }
+:root {
+  --bg: #0E0F11;        /* board panel */
+  --row: #17181B;       /* board rows */
+  --row2: #1F2024;
+  --rule: #2A2B30;
+  --ink: #F4F3EE;
+  --muted: #A2A2A8;
+  --orange: #F39A1E;    /* the one accent */
+  --ff: #4A9BE0;        /* wordmark only */
+  --track: #2C2D33;
+  --display: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --body: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 * { box-sizing: border-box; }
-body {
-  margin: 0;
-  padding: 0 16px 64px;
-  background: var(--bg);
-  color: var(--ink);
-  font: 17px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  -webkit-text-size-adjust: 100%;
-}
-.wrap { max-width: 680px; margin: 0 auto; }
-header { padding: 56px 0 28px; }
-.mark {
-  display: inline-block;
-  font-weight: 800;
-  font-size: 13px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #fff;
-  background: var(--band);
-  padding: 5px 12px;
-  border-radius: 999px;
-}
-h1 { font-size: 34px; line-height: 1.15; margin: 18px 0 8px; letter-spacing: -0.02em; }
-h2 { font-size: 21px; margin: 40px 0 10px; letter-spacing: -0.01em; }
-h3 { font-size: 17px; margin: 26px 0 6px; }
-p, li { color: var(--ink); }
-.lede, .stamp { color: var(--muted); }
-.stamp { font-size: 15px; margin: 0 0 8px; }
-.card {
-  background: var(--card);
-  border: 1px solid var(--rule);
-  border-radius: 16px;
-  padding: 4px 22px 22px;
-  margin: 24px 0;
-}
-a { color: var(--accent); }
-a.btn {
-  display: inline-block;
-  background: var(--accent);
-  color: #fff;
-  text-decoration: none;
-  font-weight: 600;
-  padding: 13px 22px;
-  border-radius: 12px;
-  margin-top: 6px;
-}
-ul { padding-left: 22px; }
-li { margin: 6px 0; }
-footer {
-  margin-top: 48px;
-  padding-top: 20px;
-  border-top: 1px solid var(--rule);
-  color: var(--muted);
-  font-size: 15px;
-}
-footer a { margin-right: 18px; }
+html { scroll-behavior: smooth; }
+body { margin: 0; overflow-x: hidden; background: var(--bg); color: var(--ink); font: 17px/1.55 var(--body); -webkit-text-size-adjust: 100%; }
+a { color: var(--orange); }
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+.wrap > *, .grid > *, .prices > *, .how > *, .hero .wrap > * { min-width: 0; }
+h1, h2, h3 { overflow-wrap: break-word; }
+.row .t > span:first-child { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; padding-right: 10px; }
+.display { font-family: var(--display); font-weight: 800; text-transform: uppercase; letter-spacing: 0.01em; line-height: 0.95; }
+.label { font-family: var(--display); font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; font-size: 15px; color: var(--orange); }
+
+/* nav */
+nav { position: sticky; top: 0; z-index: 10; background: rgba(14,15,17,0.88); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--rule); }
+nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); }
+.brand img { width: 34px; height: 34px; border-radius: 8px; border: 1px solid var(--rule); }
+.wordmark { font-family: var(--display); font-weight: 800; font-size: 26px; letter-spacing: 0.01em; }
+.wordmark .ff { color: var(--ff); }
+nav .links a { color: var(--muted); text-decoration: none; font-weight: 600; font-size: 15px; margin-left: 20px; }
+nav .links a:hover { color: var(--ink); }
+@media (max-width: 640px) { nav .links a.opt { display: none; } }
+
+/* buttons */
+.btn { display: inline-flex; align-items: center; gap: 10px; background: var(--orange); color: #0E0F11; text-decoration: none; font-family: var(--display); font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; font-size: 22px; padding: 14px 26px; border-radius: 14px; }
+.btn svg { width: 22px; height: 22px; }
+.btn.ghost { background: transparent; color: var(--ink); border: 2px solid var(--rule); }
+.btn:hover { filter: brightness(1.06); }
+
+/* hero */
+.hero { padding: 64px 0 40px; overflow: hidden; }
+.hero .wrap { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: center; }
+.hero h1 { font-size: clamp(58px, 9vw, 112px); margin: 14px 0 18px; }
+.hero h1 .o { color: var(--orange); }
+.hero p.lede { font-size: 20px; color: var(--muted); max-width: 520px; margin: 0 0 28px; }
+.hero .cta { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+.hero .small { color: var(--muted); font-size: 15px; margin-top: 14px; }
+.hero .shot { justify-self: center; position: relative; }
+.hero .shot img { width: min(340px, 78vw); border-radius: 28px; box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 0 0 1px var(--rule); display: block; }
+@media (max-width: 860px) { .hero .wrap { grid-template-columns: 1fr; } .hero { padding-top: 40px; } }
+
+/* the momentum bar */
+.mbar { position: relative; height: 18px; border-radius: 9px; background: var(--track); margin: 6px 0; }
+.mbar .fill { position: absolute; inset: 0 auto 0 0; border-radius: 9px; background: var(--orange); }
+.mbar .mid { position: absolute; left: 50%; top: -3px; bottom: -3px; width: 3px; margin-left: -1.5px; background: var(--bg); }
+.mbar .ball { position: absolute; top: 50%; width: 42px; height: 26px; margin: -13px 0 0 -21px; border-radius: 50%; background: #fff; box-shadow: 0 3px 8px rgba(0,0,0,0.45); }
+
+/* sections */
+section { padding: 72px 0; border-top: 1px solid var(--rule); }
+section h2 { font-size: clamp(44px, 6.5vw, 76px); margin: 10px 0 14px; }
+section p.intro { color: var(--muted); font-size: 19px; max-width: 640px; margin: 0 0 36px; }
+
+/* demo board */
+.board { width: 100%; background: var(--bg); border: 1px solid var(--rule); border-radius: 26px; padding: 18px; max-width: 520px; box-shadow: 0 20px 60px rgba(0,0,0,0.4); }
+.board .head { display: flex; justify-content: space-between; font-family: var(--display); font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; font-size: 18px; padding: 2px 6px 12px; }
+.board .head .rec { color: var(--orange); }
+.row { background: var(--row); border-radius: 16px; padding: 14px 16px 12px; margin-bottom: 10px; }
+.row .t { display: flex; justify-content: space-between; font-family: var(--display); font-weight: 800; text-transform: uppercase; }
+.row .me { font-size: 24px; }
+.row .them { font-size: 18px; color: var(--muted); }
+.row .s1 { font-size: 30px; }
+.row .s2 { font-size: 22px; color: var(--muted); }
+.row .meta { display: flex; justify-content: space-between; font-family: var(--display); font-weight: 700; font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-top: 6px; }
+.row .meta .win { color: var(--orange); }
+.how { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+@media (max-width: 860px) { .how { grid-template-columns: 1fr; } }
+.steps { counter-reset: s; list-style: none; padding: 0; margin: 0; }
+.steps li { counter-increment: s; display: grid; grid-template-columns: 56px 1fr; gap: 14px; margin: 0 0 26px; }
+.steps li::before { content: counter(s); font-family: var(--display); font-weight: 800; font-size: 44px; color: var(--orange); line-height: 1; }
+.steps h3 { font-family: var(--display); font-weight: 800; text-transform: uppercase; font-size: 28px; margin: 0 0 4px; letter-spacing: 0.01em; }
+.steps p { margin: 0; color: var(--muted); }
+
+/* features */
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+@media (max-width: 860px) { .grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .grid { grid-template-columns: 1fr; } }
+.card { background: var(--row); border: 1px solid var(--rule); border-radius: 20px; padding: 24px 22px; }
+.card h3 { font-family: var(--display); font-weight: 800; text-transform: uppercase; font-size: 30px; margin: 0 0 8px; line-height: 1; }
+.card p { margin: 0; color: var(--muted); font-size: 16px; }
+.card .k { font-family: var(--display); font-weight: 800; color: var(--orange); font-size: 15px; letter-spacing: 0.14em; text-transform: uppercase; display: block; margin-bottom: 10px; }
+
+/* screenshots */
+.shots { display: flex; gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 6px 2px 18px; -webkit-overflow-scrolling: touch; }
+.shots img { flex: 0 0 auto; width: 250px; border-radius: 22px; scroll-snap-align: start; box-shadow: 0 0 0 1px var(--rule); }
+
+/* pricing */
+.prices { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+@media (max-width: 760px) { .prices { grid-template-columns: 1fr; } }
+.price { background: var(--row); border: 1px solid var(--rule); border-radius: 20px; padding: 26px 24px; }
+.price.pick { border-color: var(--orange); }
+.price .n { font-family: var(--display); font-weight: 800; text-transform: uppercase; font-size: 28px; }
+.price .p { font-family: var(--display); font-weight: 800; font-size: 64px; line-height: 1; margin: 10px 0 6px; }
+.price .p small { font-size: 22px; color: var(--muted); }
+.price p { margin: 0; color: var(--muted); font-size: 16px; }
+
+/* support */
+.support { max-width: 760px; }
+.support h3 { font-size: 19px; margin: 30px 0 6px; }
+.support p { color: #D6D5D0; }
+.contact { background: var(--row); border: 1px solid var(--rule); border-radius: 20px; padding: 24px; margin: 6px 0 20px; }
+.contact p { margin: 0 0 14px; }
+.contact .hint { color: var(--muted); font-size: 15px; margin: 14px 0 0; }
+
+/* closing band */
+.band { text-align: center; padding: 84px 0; border-top: 1px solid var(--rule); background: radial-gradient(ellipse at 50% 0%, rgba(243,154,30,0.14), rgba(14,15,17,0) 60%); }
+.band h2 { font-size: clamp(54px, 9vw, 110px); margin: 0 0 22px; }
+.band .mbar { max-width: 420px; margin: 0 auto 34px; }
+
+footer { border-top: 1px solid var(--rule); padding: 28px 0 48px; color: var(--muted); font-size: 15px; }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 14px; }
+footer a { color: var(--muted); margin-right: 18px; }
 </style>
 </head>
 <body>
-<div class="wrap">
 
-<header>
-  <span class="mark">BigBoard FF</span>
-  <h1>Support</h1>
-  <p class="lede">Every fantasy football league you play, on one board and one home-screen widget.</p>
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="BigBoard FF home">
+      <img src="img/icon-512.png" alt="">
+      <span class="wordmark">BIGBOARD <span class="ff">FF</span></span>
+    </a>
+    <div class="links">
+      <a class="opt" href="#features">Features</a>
+      <a class="opt" href="#pricing">Pricing</a>
+      <a href="#support">Support</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <span class="label">Fantasy football scoreboard for iPhone</span>
+      <h1 class="display">Every league.<br><span class="o">One board.</span></h1>
+      <p class="lede">BigBoard FF puts every fantasy football league you play in on one live scoreboard and one home-screen widget. Sleeper, ESPN and Fleaflicker, side by side, with a live win chance for every matchup.</p>
+      <div class="cta">
+        <a class="btn" href="https://apps.apple.com/us/app/bigboard-ff/id6817471218">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.37 12.37c-.02-2.2 1.8-3.26 1.88-3.31-1.03-1.5-2.62-1.7-3.18-1.72-1.35-.14-2.64.8-3.33.8-.69 0-1.74-.78-2.87-.76-1.47.02-2.83.86-3.59 2.18-1.53 2.66-.39 6.59 1.1 8.75.73 1.06 1.6 2.24 2.73 2.2 1.1-.04 1.51-.71 2.84-.71 1.32 0 1.7.71 2.86.69 1.18-.02 1.93-1.07 2.65-2.13.84-1.22 1.18-2.41 1.2-2.47-.03-.01-2.3-.88-2.29-3.52zM14.2 5.9c.6-.73 1.01-1.75.9-2.76-.87.04-1.92.58-2.54 1.31-.56.65-1.05 1.68-.92 2.67.97.08 1.96-.49 2.56-1.22z"/></svg>
+          Get it on the App Store
+        </a>
+        <a class="btn ghost" href="#how">See how it works</a>
+      </div>
+      <p class="small">Free for one league. iPhone, iOS 17 or later.</p>
+    </div>
+    <div class="shot">
+      <img src="img/01-every-league.jpg" alt="BigBoard FF showing five fantasy leagues on one board, each with scores and a live win-chance bar" width="645" height="1398">
+    </div>
+  </div>
 </header>
 
-<div class="card">
-  <h2>Get in touch</h2>
-  <p>Questions, bugs, a league that won't load, or a refund question — send a note and
-     you'll get a reply from a person.</p>
-  <p><a class="btn" href="mailto:bigboardff@gmail.com">bigboardff@gmail.com</a></p>
-  <p class="lede" style="font-size:15px">It helps to say which platform the league is on
-     (Sleeper, ESPN or Fleaflicker) and what you saw instead of scores.</p>
+<section id="how">
+  <div class="wrap how">
+    <div>
+      <span class="label">How it works</span>
+      <h2 class="display">Stop flipping<br>between apps.</h2>
+      <ol class="steps">
+        <li><div><h3>Add your leagues</h3><p>Sleeper with just your username. ESPN with a league ID, or sign in for private leagues. Fleaflicker with your account email. No BigBoard account.</p></div></li>
+        <li><div><h3>Watch one board</h3><p>Every matchup lands on one scoreboard: both scores, who's leading, and a live win-chance bar with a football riding it to your odds.</p></div></li>
+        <li><div><h3>Put it on your home screen</h3><p>Small, medium and large widgets plus the Lock Screen. Glance at your phone mid-game and see every league at once.</p></div></li>
+      </ol>
+    </div>
+    <div class="board" aria-label="An example board">
+      <div class="head"><span>My leagues</span><span class="rec">4–1 · Live</span></div>
+      <div class="row">
+        <div class="t"><span class="me">Immaculate Deception</span><span class="s1">112.4</span></div>
+        <div class="t"><span class="them">Tuck Rule Breakers</span><span class="s2">97.1</span></div>
+        <div class="mbar"><div class="fill" style="width:81%"></div><div class="mid"></div><div class="ball" style="left:81%"></div></div>
+        <div class="meta"><span class="win">81% win</span><span>2 left · 1 opp</span></div>
+      </div>
+      <div class="row">
+        <div class="t"><span class="me">Philly Special Sauce</span><span class="s1">107.0</span></div>
+        <div class="t"><span class="them">The Double Doinks</span><span class="s2">74.2</span></div>
+        <div class="mbar"><div class="fill" style="width:93%"></div><div class="mid"></div><div class="ball" style="left:93%"></div></div>
+        <div class="meta"><span class="win">93% win</span><span>1 left · 0 opp</span></div>
+      </div>
+      <div class="row">
+        <div class="t"><span class="me">Music City Miracle Whip</span><span class="s1" style="color:var(--muted)">66.1</span></div>
+        <div class="t"><span class="them">Butt Fumble Bandits</span><span class="s2" style="color:var(--ink)">71.1</span></div>
+        <div class="mbar"><div class="fill" style="width:42%"></div><div class="mid"></div><div class="ball" style="left:42%"></div></div>
+        <div class="meta"><span class="win">42% win</span><span>3 left · 1 opp</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="features">
+  <div class="wrap">
+    <span class="label">Features</span>
+    <h2 class="display">Built like a broadcast.</h2>
+    <p class="intro">Condensed type, big numbers and one bar that tells you how worried to be. Everything you need on a Sunday, nothing you don't.</p>
+    <div class="grid">
+      <div class="card"><span class="k">Live win chance</span><h3>Know where you stand</h3><p>The momentum bar fills to your odds of winning, updated as scores come in, with a football riding the end of it.</p></div>
+      <div class="card"><span class="k">Three platforms</span><h3>Sleeper. ESPN. Fleaflicker.</h3><p>Every league you play in, from every app you play on, side by side on one board.</p></div>
+      <div class="card"><span class="k">Widgets</span><h3>Home and Lock Screen</h3><p>Small, medium and large home-screen widgets plus Lock Screen widgets, each with its own settings.</p></div>
+      <div class="card"><span class="k">Still to play</span><h3>Who's left</h3><p>Projections, players left on each side, live game clocks and injury tags for every matchup.</p></div>
+      <div class="card"><span class="k">Six styles</span><h3>Make it yours</h3><p>Broadcast, Scorebug, Jumbotron, Tiles, Head-to-Head and Momentum, in four sizes, with your team's colours, light or dark.</p></div>
+      <div class="card"><span class="k">Private</span><h3>No account, no ads</h3><p>No BigBoard account, no server, no analytics, no ads. Your leagues stay on your iPhone.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="screens">
+  <div class="wrap">
+    <span class="label">Screenshots</span>
+    <h2 class="display">See it on your phone.</h2>
+    <div class="shots">
+      <img src="img/01-every-league.jpg" alt="Every league on one board" loading="lazy" width="645" height="1398">
+      <img src="img/02-home-screen.jpg" alt="Live on your home screen: BigBoard widgets" loading="lazy" width="645" height="1398">
+      <img src="img/03-six-styles.jpg" alt="Six styles to make the board yours" loading="lazy" width="645" height="1398">
+      <img src="img/04-still-to-play.jpg" alt="See who's still to play in each matchup" loading="lazy" width="645" height="1398">
+      <img src="img/05-platforms.jpg" alt="Sleeper, ESPN and Fleaflicker leagues in one place" loading="lazy" width="645" height="1398">
+      <img src="img/06-lock-screen.jpg" alt="Scores at a glance on the Lock Screen" loading="lazy" width="645" height="1398">
+    </div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="wrap">
+    <span class="label">Pricing</span>
+    <h2 class="display">Free for one league.</h2>
+    <p class="intro">Pay once for more leagues. No subscription.</p>
+    <div class="prices">
+      <div class="price"><div class="n">One league</div><div class="p">Free</div><p>Everything in the app for your one league: the board, every style and every widget.</p></div>
+      <div class="price"><div class="n">Two leagues</div><div class="p">99¢ <small>once</small></div><p>Follow a second league. Upgrade to unlimited later for the difference.</p></div>
+      <div class="price pick"><div class="n">Unlimited</div><div class="p">$4.99 <small>once</small></div><p>Every league you play in, on one board. Purchases restore with your Apple Account.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="support">
+  <div class="wrap support">
+    <span class="label">Support</span>
+    <h2 class="display">Need a hand?</h2>
+    <div class="contact">
+      <p>Questions, bugs, a league that won't load, or a refund question — send a note and
+         you'll get a reply from a person.</p>
+      <a class="btn" href="mailto:bigboardff@gmail.com">bigboardff@gmail.com</a>
+      <p class="hint">It helps to say which platform the league is on
+         (Sleeper, ESPN or Fleaflicker) and what you saw instead of scores.</p>
+    </div>
+
+    <h3>Which platforms does BigBoard support?</h3>
+    <p>Sleeper, ESPN and Fleaflicker. Sleeper and Fleaflicker need only your username or the
+       email on the account. A public ESPN league needs only its league ID; a private one needs
+       you to sign in to ESPN.</p>
+
+    <h3>My widget is showing an old score</h3>
+    <p>iOS, not BigBoard, decides how often a widget may redraw — usually about every fifteen
+       minutes, and less often when your battery is low or you rarely look at that screen.
+       Tap the red circle at the right of the widget's header to pull fresh scores immediately.
+       The app itself is always current: open it and pull down to refresh.</p>
+
+    <h3>My widget is blank, or shows sample teams</h3>
+    <p>A brand-new widget draws sample data until it has fetched once. If it stays that way,
+       open BigBoard, confirm the board you picked still has leagues on it, then remove the
+       widget and add it again.</p>
+
+    <h3>How many leagues can I follow?</h3>
+    <p>BigBoard is a free download and follows one league at no cost. Two leagues is a one-time
+       99¢ purchase, and unlimited leagues is a one-time $4.99 purchase. If you buy the two-league
+       option first, upgrading later costs only the difference.</p>
+
+    <h3>I paid already, on another device</h3>
+    <p>Open <strong>Settings → Restore Purchases</strong> in BigBoard. Purchases follow your
+       Apple Account, so anything bought with the same Apple Account restores for free.</p>
+
+    <h3>Does BigBoard see my password?</h3>
+    <p>No. ESPN sign-in happens in ESPN's own web page, and BigBoard keeps only the session
+       cookies it hands back — in the iOS keychain, never in ordinary settings. Sleeper and
+       Fleaflicker need no password at all. There is no BigBoard account and no BigBoard
+       server.</p>
+
+    <h3>How do I delete my data?</h3>
+    <p>Delete the app. Everything BigBoard knows lives on your iPhone, so removing the app
+       removes all of it. To clear only the stored scores, use <strong>Settings → Clear cached
+       scores</strong>.</p>
+
+    <h3>What do the coloured dots next to a player mean?</h3>
+    <p>Yellow is questionable, orange is doubtful, red is out or on injured reserve. A cyan dot
+       means that player's NFL game is in progress. On a tinted home screen, where iOS throws
+       colour away, the marks get heavier as the news gets worse instead.</p>
+  </div>
+</section>
+
+<div class="band">
+  <div class="wrap">
+    <h2 class="display">Every league.<br><span style="color:var(--orange)">One board.</span></h2>
+    <div class="mbar" aria-hidden="true"><div class="fill" style="width:64%"></div><div class="mid"></div><div class="ball" style="left:64%"></div></div>
+    <a class="btn" href="https://apps.apple.com/us/app/bigboard-ff/id6817471218">Get BigBoard FF — free</a>
+  </div>
 </div>
-
-<h2>Common questions</h2>
-
-<h3>Which platforms does BigBoard support?</h3>
-<p>Sleeper, ESPN and Fleaflicker. Sleeper and Fleaflicker need only your username or the
-   email on the account. A public ESPN league needs only its league ID; a private one needs
-   you to sign in to ESPN.</p>
-
-<h3>My widget is showing an old score</h3>
-<p>iOS, not BigBoard, decides how often a widget may redraw — usually about every fifteen
-   minutes, and less often when your battery is low or you rarely look at that screen.
-   Tap the red circle at the right of the widget's header to pull fresh scores immediately.
-   The app itself is always current: open it and pull down to refresh.</p>
-
-<h3>My widget is blank, or shows sample teams</h3>
-<p>A brand-new widget draws sample data until it has fetched once. If it stays that way,
-   open BigBoard, confirm the board you picked still has leagues on it, then remove the
-   widget and add it again.</p>
-
-<h3>How many leagues can I follow?</h3>
-<p>BigBoard is a free download and follows one league at no cost. Two leagues is a one-time
-   99¢ purchase, and unlimited leagues is a one-time $4.99 purchase. If you buy the two-league
-   option first, upgrading later costs only the difference.</p>
-
-<h3>I paid already, on another device</h3>
-<p>Open <strong>Settings → Restore Purchases</strong> in BigBoard. Purchases follow your
-   Apple Account, so anything bought with the same Apple Account restores for free.</p>
-
-<h3>Does BigBoard see my password?</h3>
-<p>No. ESPN sign-in happens in ESPN's own web page, and BigBoard keeps only the session
-   cookies it hands back — in the iOS keychain, never in ordinary settings. Sleeper and
-   Fleaflicker need no password at all. There is no BigBoard account and no BigBoard
-   server.</p>
-
-<h3>How do I delete my data?</h3>
-<p>Delete the app. Everything BigBoard knows lives on your iPhone, so removing the app
-   removes all of it. To clear only the stored scores, use <strong>Settings → Clear cached
-   scores</strong>.</p>
-
-<h3>What do the coloured dots next to a player mean?</h3>
-<p>Yellow is questionable, orange is doubtful, red is out or on injured reserve. A cyan dot
-   means that player's NFL game is in progress. On a tinted home screen, where iOS throws
-   colour away, the marks get heavier as the news gets worse instead.</p>
 
 <footer>
-  <a href="privacy.html">Privacy Policy</a>
-  <a href="mailto:bigboardff@gmail.com">Contact</a>
+  <div class="wrap">
+    <div><span class="wordmark" style="font-size:20px;color:var(--ink)">BIGBOARD <span class="ff">FF</span></span><br>Not affiliated with the NFL, Sleeper, ESPN or Fleaflicker.</div>
+    <div>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="mailto:bigboardff@gmail.com">Contact</a>
+      <a href="https://www.instagram.com/bigboardff/">Instagram</a>
+      <a href="https://www.tiktok.com/@bigboard_ff">TikTok</a>
+    </div>
+  </div>
 </footer>
 
-</div>
 </body>
 </html>
